@@ -1,3 +1,10 @@
+/*reset everything
+*{
+    margin: 0;
+    padding: 0;
+}
+*/
+
 body{
     background-color: #f4f4f4;
     color: #555555;
@@ -16,4 +23,17 @@ body{
 .box-1{
     background-color: #333333;
     color: #ffffff;
+    border: 5px red solid;
+    border-bottom: dotted;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.box-1 h1{
+    font-family: Tahoma;
+    font-weight: 800;
+    font-style: italic;
+    text-decoration: underline;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
 }
