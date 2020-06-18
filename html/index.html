@@ -40,5 +40,47 @@
                 </tr>                
             </tbody>
         </table>
+
+        <br>
+        <!-- Forms-->
+        <form action="process.php" method="POST">
+            <div>
+                <label>FirstName</label>
+                <input type="text" name="first-name" placeholder="Enter your name">
+            </div>
+            <br>
+            <div>
+                <label>LastName</label>
+                <input type="text" name="last-name">                
+            </div>
+            <br>
+            <div>
+                <label>Feedback</label>
+                <textarea Name="message"></textarea>                
+            </div>    
+            <br>
+            <div>
+                <label>Gender</label>
+                <select Name="Gender">
+                <option value="male">Male</option>        
+                <option value="female">Female</option>    
+                </select>                       
+            </div>      
+            <br>
+            <div>
+                <label>Age:</label>
+                <input type="number" name="age" value="20">               
+            </div>        
+            <br>
+            <div>
+                <label>Birthday:</label>
+                <input type="date" name="birthday">               
+            </div>  
+            <br>
+            <input type="submit" name="submit">                                     
+        </form>       
+
+        <!-- Buttons-->
+        <button>Click Me</button>
     </body>
 </html>
