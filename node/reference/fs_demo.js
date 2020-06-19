@@ -12,4 +12,16 @@ fs.mkdir(path.join(__dirname,'/test'), {}, err => {
 fs.writeFile(path.join(__dirname,'/test','hello.txt'), 'Hello!', err => {
     if (err) throw err;
     console.log('file created');
+
+    //append to a file
+    fs.appendFile(path.join(__dirname,'/test','hello.txt'), 'Have a good day!', err => {
+        if (err) throw err;
+        console.log('file created');
+    });
+});
+
+//read file
+fs.readFile(path.join(__dirname,'/test','hello.txt'), 'utf8', (err, data) => {
+    if (err) throw err;
+    console.log(data);
 });
