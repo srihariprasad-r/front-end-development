@@ -41,6 +41,10 @@ a:active{
 
 }
 
+.clr{
+    clear: both;
+}
+
 .box-1{
     background-color: #333333;
     color: #ffffff;
@@ -97,3 +101,24 @@ a:active{
     width: 60%;
 }
 
+.block {
+    float: left;
+    width: 33.3%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#main-block{
+    float: left;
+    width: 70%;
+}
+
+#side-bar{
+    float:right;
+    width: 30%;
+    background-color: #333;
+    color:#fff;
+    padding:15px;
+    box-sizing: border-box;
+}
