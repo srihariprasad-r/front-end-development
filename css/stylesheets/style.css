@@ -15,6 +15,20 @@ body{
     margin: 0;
 }
 
+a{
+    text-decoration: none;
+    color: #000;
+
+}
+
+a:hover{
+    color: red;
+}
+
+a:active{
+    color:green;
+}
+
 .container{
     width: 80%;
     margin: auto;
@@ -36,4 +50,24 @@ body{
     text-decoration: underline;
     text-transform: uppercase;
     letter-spacing: 0.2em;
+}
+
+.categories{
+    border: 1px #ccc solid;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.categories h2 {
+    text-align: center;
+}
+
+.categories ul{
+    padding: 0px;
+    list-style: none;
+}
+
+.categories li{
+    padding: 8px dotted #333;
+    border-bottom: dotted 1px #333;
 }
