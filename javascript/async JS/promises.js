@@ -13,9 +13,35 @@ function getPosts(){
     }, 1000)
 };
 
-function createPost(post, callback) {
+function createPost(post) {
+    return new Promise((resolve, reject) => {
     setTimeout(() => {
         posts.push(post);
-        callback(); //this function will be executed after new item is pushed to the array
-    }, 2000);
+        const err = false;
+        if(!err){
+            resolve();
+        } else {
+            reject('Error!');
+        }
+    }, 2000)
+  })
 };
+
+//createPost({title:'post three', body:'This is post three'}).then(getPosts).catch(err=> console.log(`Error caught! ${err}`));
+
+//Async await
+async function init() {
+    await createPost({title:'post three', body:'This is post three'});
+    getPosts();
+}
+
+init();
+
+
+//Promise.all
+const promise1 = Promise.resolve('Hello!');
+const promise2 = new Promise((resolve, reject)=> {
+    setTimeout(resolve, 2000, 'Bye!');
+});
+
+Promise.all([promise1,promise2]).then(values => console.log(values));   //["Hello!", "Bye!"]
