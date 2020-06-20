@@ -13,3 +13,10 @@ console.log(myurl.hostname);
 
 //pathname
 console.log(myurl.pathname);
+
+//search params
+console.log(myurl.searchParams);
+
+//add param string
+myurl.searchParams.append('abc','123');
+console.log(myurl.searchParams);
