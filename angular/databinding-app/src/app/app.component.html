@@ -14,7 +14,7 @@
       </button>
       <app-server-element *ngFor="let s of serverElements" [srvElement]="s" [name]="s.name">
         <p>
-          <strong *ngIf="s.type === 'server'" style="color: red">{{ s.content }}</strong>
+          <strong *ngIf="s.type === 'server'" style="color: red" #contentElement>{{ s.content }}</strong>
           <em *ngIf="s.type === 'blueprint'">{{ s.content }}</em>
         </p>
       </app-server-element>
