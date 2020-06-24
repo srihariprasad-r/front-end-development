@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -8,25 +8,27 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class CockpitComponent implements OnInit {
   @Output() serverCreated = new EventEmitter<{servername:string, servercontent:string}>();
   @Output() blueprintCreated = new EventEmitter<{servername:string, servercontent:string}>();
-  newServerName = '';
-  newServerContent = '';
+  //newServerName = '';
+ // newServerContent = '';
+ //below @ViewChild is used to get the html local reference '#<variable> which is of type ElementRef and use it in TS'
+  @ViewChild('serverContent') serverContent : ElementRef;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onAddServer() {
+  onAddServer(nameInput: HTMLInputElement) {
     this.serverCreated.emit({
-      servername: this.newServerName, 
-      servercontent: this.newServerContent
+      servername: nameInput.value, 
+      servercontent: this.serverContent.nativeElement.value
     });
   }
 
-  onAddBlueprint() {
+  onAddBlueprint(contentInput: HTMLInputElement) {
     this.blueprintCreated.emit({
-      servername: this.newServerName, 
-      servercontent: this.newServerContent
+      servername: contentInput.value, 
+      servercontent: this.serverContent.nativeElement.value
     });
   }
 }
