@@ -1,8 +1,13 @@
 import { Recipe } from './recipes.model';
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
+import { ShoppingListService } from '../shopping-list/shopping-list.service';
 
+@Injectable()
 export class RecipeService {
+
+    constructor(private shoppinglistservice: ShoppingListService) {}
+
     private recipes: Recipe[] = [
         new Recipe('Schezwan Fried Rice',
         'Its so good!',
@@ -26,5 +31,9 @@ export class RecipeService {
     
     getRecipe() {
         return this.recipes.slice();
+    }
+
+    addIngredientsToShoppingList(ingredient: Ingredient[]) {
+        this.shoppinglistservice.addIngredientArray(ingredient);
     }
 }
