@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServersService } from './servers.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-servers',
@@ -11,7 +11,9 @@ export class ServersComponent implements OnInit {
   public servers: {id: number, name: string, status: string}[] = [];
 
   constructor(private serversService: ServersService,
-              private router: Router) { }
+              private router: Router,
+              private route: ActivatedRoute //this will load currently active route
+              ) { }
 
   ngOnInit() {
     this.servers = this.serversService.getServers();
@@ -19,7 +21,7 @@ export class ServersComponent implements OnInit {
 
   onReloadPage() {
     //routeLink knows currently loaded route, but navigate doesn't know
-    this.router.navigate(['servers']);
+    //this.router.navigate(['servers'], {relativeTo: this.route});
   }
 
 }
