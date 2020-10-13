@@ -12,6 +12,7 @@ const db = {
 const schema = buildSchema(
     `type Query {
         users: [User]
+        user(name:String!): User
     }
 
     type Mutation {
@@ -27,6 +28,7 @@ const schema = buildSchema(
 
 const value = {
     users: () => db.users,
+    user: args => db.users.find(user => args.name === user.name),
     adduser: ({name, email}) => {
         const user = {
             name : name,
