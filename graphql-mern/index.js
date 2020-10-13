@@ -13,6 +13,10 @@ const schema = buildSchema(
     `type Query {
         users: [User]
     }
+
+    type Mutation {
+        adduser(name: String!, email: String): User
+    }
     
     type User {
         name: String!,
@@ -22,7 +26,15 @@ const schema = buildSchema(
 )
 
 const value = {
-    users: () => db.users
+    users: () => db.users,
+    adduser: ({name, email}) => {
+        const user = {
+            name : name,
+            email: email
+        } 
+        db.users.push(user)
+        return user
+    }
 }
 
 const app = express()
