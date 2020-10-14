@@ -29,4 +29,16 @@ router.get('/:productID', (req, res, next) => {
     }
 });
 
+router.patch('/', (req, res, next) => {
+    res.status(200).json({
+        message:"PATCH method for /product"
+    })
+});
+
+router.delete('/', (req, res, next) => {
+    res.status(200).json({
+        message:"DELETE method for /product"
+    })
+});
+
 module.exports = router;
