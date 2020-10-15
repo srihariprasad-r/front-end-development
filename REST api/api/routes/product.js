@@ -80,10 +80,24 @@ router.get('/:productID', (req, res, next) => {
     */
 });
 
-router.patch('/', (req, res, next) => {
-    res.status(200).json({
-        message:"PATCH method for /products"
+router.patch("/:productID", (req, res, next) => {
+    const productID = req.params.productID;
+    const updateops = {};
+    for (const ops of req.body){
+        updateops[ops.property] = ops.value
+    }
+    Products.update({_id:productID}, {$set:updateops})
+    .exec()
+    .then(result => {
+        console.log(result);
+        res.status(200).json(result)
     })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({
+            error:err
+        })
+    });
 });
 
 router.delete('/:productID', (req, res, next) => {
