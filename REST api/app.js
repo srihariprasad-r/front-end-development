@@ -1,9 +1,16 @@
 const express = require('express')
 const app = express();
 const bodyparser = require('body-parser');
+const mongo = require('mongoose');
 
 const productResources = require('./api/routes/product')
 const orderResources = require('./api/routes/orders')
+
+mongo.connect('mongodb+srv://node_rest_user:'+ process.env.MONGO_ATLAS + '@node-restapi.l5u5u.mongodb.net/<dbname>?retryWrites=true&w=majority',
+{ 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true 
+  });
 
 app.use(bodyparser.urlencoded({extended: false}));
 app.use(bodyparser.json());
