@@ -1,8 +1,12 @@
 const express = require('express')
 const app = express();
+const bodyparser = require('body-parser');
 
 const productResources = require('./api/routes/product')
 const orderResources = require('./api/routes/orders')
+
+app.use(bodyparser.urlencoded({extended: false}));
+app.use(bodyparser.json());
 
 app.use('/products', productResources)
 app.use('/orders', orderResources)
