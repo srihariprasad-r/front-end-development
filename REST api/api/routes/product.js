@@ -34,6 +34,7 @@ router.get("/", (req, res, next) => {
     });
 });
 
+
 router.post('/', (req, res, next) => {
 /**
        const createdproduct  = {
@@ -101,6 +102,7 @@ router.get('/:productID', (req, res, next) => {
     */
 });
 
+
 router.patch("/:productID", (req, res, next) => {
     const productID = req.params.productID;
     const updateops = {};
@@ -121,6 +123,7 @@ router.patch("/:productID", (req, res, next) => {
     });
 });
 
+
 router.delete('/:productID', (req, res, next) => {
     const productID = req.params.productID
     Products
@@ -129,5 +132,6 @@ router.delete('/:productID', (req, res, next) => {
     .then(result => res.status(200).json(result))
     .catch(err=> res.status(404).json({error:err}));    
 });
+
 
 module.exports = router;

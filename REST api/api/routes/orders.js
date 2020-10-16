@@ -1,5 +1,7 @@
 const express = require('express')
 const router = express.Router();
+const mongoose = require('mongoose');
+const Order = require('../models/orderSchema');
 
 router.get('/', (req, res, next) => {
     res.status(200).json({
@@ -8,13 +10,25 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    const createdobject = {
+    const createdobject = new Order({
+        _id: new mongoose.Types.ObjectId(),
         productID: req.body.productID,
         quantity: req.body.quantity
-    }
-    res.status(201).json({
-        message:"POST method for /orders",
-        createdobject: createdobject
+    })
+
+    createdobject.save()
+    .then(result=> {
+        console.log(result);
+        res.status(201).json({
+            message:"POST method for /orders",
+            createdobject: createdobject
+        })        
+    })
+    .catch(error=>{
+        console.log(error);
+        res.status(500).json({
+            error: error      
+        })         
     })
 });
 
