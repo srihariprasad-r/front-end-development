@@ -52,15 +52,21 @@ router.post('/', (req, res, next) => {
     .then(result => {
         console.log(result);
         res.status(201).json({
-            message:"POST method for /products",
-            createdProduct: product
+            message: "Collection has been created successfully!",
+            createdProduct: {
+                name: result.name,
+                price: result.price,
+                request: {
+                    type: "GET",
+                    url: "http://localhost:3000/products/" + result._id
+
+                }
+            }
         });
     }).catch(error => {
         console.log(error);
         res.status(500).json({error:error});
     });
-
-
 });
 
 
