@@ -6,10 +6,25 @@ const Products = require('../models/ProductSchema');
 
 router.get("/", (req, res, next) => {
     Products.find()
+    .select("name price _id")    
     .exec()
     .then(doc => {
         console.log(doc);
-        res.status(200).json(doc);
+        const resp = {
+            count : doc.length,
+            products: doc.map(d => {
+                return {
+                    name: d.name,
+                    price: d.price,
+                    id: d._id, 
+                    request: {
+                        type: "GET",
+                        url : "http://localhost:3000/products/" + d._id
+                    }
+                }
+            })        
+        }
+        res.status(200).json(resp);
     })
     .catch(err => {
         console.log(err);
@@ -42,7 +57,7 @@ router.post('/', (req, res, next) => {
         });
     }).catch(error => {
         console.log(error);
-        res.status(500).json({error:err});
+        res.status(500).json({error:error});
     });
 
 
