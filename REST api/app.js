@@ -13,7 +13,7 @@ mongo.connect('mongodb+srv://node_rest_user:'+ process.env.MONGO_ATLAS + '@node-
     useUnifiedTopology: true 
   });
 
-app.use(bodyparser.urlencoded({extended: false}));
+app.use(bodyparser.urlencoded({extended: true}));
 app.use(bodyparser.json());
 
 app.use('/products', productResources)

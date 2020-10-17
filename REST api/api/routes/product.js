@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 const mongoose = require('mongoose');
 const Products = require('../models/ProductSchema');
+const authorize = require('../middleware/auth');
 
 
 router.get("/", (req, res, next) => {
@@ -35,7 +36,7 @@ router.get("/", (req, res, next) => {
 });
 
 
-router.post('/', (req, res, next) => {
+router.post('/', authorize, (req, res, next) => {
 /**
        const createdproduct  = {
         name: req.body.name,
