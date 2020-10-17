@@ -16,7 +16,7 @@ router.get('/', (req, res, next) => {
                 quantity: res.quantity,
                 request: {
                     type: "GET",
-                    url: "https://localhost:3000/orders/" + res._id 
+                    url: "http://localhost:3000/orders/" + res._id 
                 }
             }
         })
@@ -54,10 +54,26 @@ router.post('/', (req, res, next) => {
 });
 
 
-router.get('/:orderID', (req, res, next) => {
-    res.status(200).json({
-        message:"GET method for /orders",
-        ID: orderID
+router.get("/:orderID", (req, res, next) => {
+    const orderID = req.params.orderID;
+    Order.findById(orderID)
+    .exec()
+    .then(result => {
+        if (result) {
+            console.log(result);
+            res.status(200).json(result)
+        } else {
+            console.log("No such order exists!");
+            res.status(404).json({
+                message: "No such orderID exists"
+            })
+        }
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({
+            error: err
+        })
     })
 });
 
