@@ -4,8 +4,29 @@ const mongoose = require('mongoose');
 const Order = require('../models/orderSchema');
 
 router.get('/', (req, res, next) => {
-    res.status(200).json({
-        message:"GET method for /orders"
+    Order.find()
+    .select("productID quantity")
+    .populate('productID')
+    .exec()
+    .then(result => {
+        console.log(result);
+        const resp = result.map(res => {
+            return {
+                productID: res.productID,
+                quantity: res.quantity,
+                request: {
+                    type: "GET",
+                    url: "https://localhost:3000/orders/" + res._id 
+                }
+            }
+        })
+        res.status(200).json(resp);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({
+            error: err
+        })
     })
 });
 
