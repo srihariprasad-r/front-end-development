@@ -36,6 +36,11 @@ app.post('/posts/:id/comments', (req,res) => {
     res.status(201).send(commentsbyID[req.params.id]);
 });
 
+app.post('/events', (req, res) => {
+    console.log('Event received from port 4005', req.body.type);
+    res.send({});
+});
+
 app.listen(4001, () => {
     console.log('Listening at port 4001')
 });

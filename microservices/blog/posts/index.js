@@ -33,6 +33,11 @@ app.post('/posts', async (req,res) => {
     res.status(201).send(posts[id]);
 });
 
+app.post('/events', (req, res) => {
+    console.log('Event received from port 4005', req.body.type);
+    res.send({});
+});
+
 app.listen(4000, () => {
     console.log('Listening at port 4000')
 });
