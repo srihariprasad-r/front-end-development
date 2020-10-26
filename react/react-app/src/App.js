@@ -40,12 +40,12 @@ class App  extends  Component{
   }
 
   render () {
-  return (
-    <div className="App">
-      <h1>I am a React App</h1>
-      <button onClick={this.toggleHandler}>Toggle Name</button>
-      { this.state.showPersons ?
-          <div>
+    
+    let displayperson = null
+
+    if (this.state.showPersons) {
+      displayperson = (
+        <div>
               <Person 
               name={this.state.persons[0].name} 
               age={this.state.persons[0].age} 
@@ -58,9 +58,14 @@ class App  extends  Component{
               > 
               My hobbies: Racing 
               </Person>    
-          </div> 
-        : null
-    }    
+          </div> );
+    };
+
+  return (
+    <div className="App">
+      <h1>I am a React App</h1>
+      <button onClick={this.toggleHandler}>Toggle Name</button>
+      {displayperson}   
     </div>
   );
   }
