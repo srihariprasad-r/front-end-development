@@ -5,8 +5,8 @@ import Person from './Person/Person';
 class App  extends  Component{
   state = {
     persons : [
-      {name: "ABC", age: 45},
-      {name: "DEC", age: 88}
+      {id: 'abcd', name: "ABC", age: 45},
+      {id: 'defg',name: "DEC", age: 88}
     ],
     showPersons: false
   };
@@ -29,13 +29,21 @@ class App  extends  Component{
   };
 
 
-  changeNameHandler = (event) => {
+  changeNameHandler = (event, id) => {
+    const pIndex = this.state.persons.findIndex(p => {
+      return p.id === id;
+    });
+
+    const p1 = Object.assign({},this.state.persons[pIndex]);
+
+    p1.name = event.target.value;
+
+    const personLists = [...this.state.persons];    // fixed error her and changed it to arrays instead of objects as MAP function was failing!
+    personLists[pIndex] = p1;
+
     // this.state.persons.persons[0].name = "ABD"  // ERROR!
     this.setState({
-      persons : [
-        {name: event.target.value, age: 45},
-        {name: "DEC", age: 48}
-      ]
+      persons : personLists
     })
   };
 
@@ -54,14 +62,16 @@ class App  extends  Component{
       displayperson = (
         <div>
           {this.state.persons.map((pson, index) => {
-            return (<Person
+            return <Person
               click={() => this.deleteNameHandler(index)}
               name={pson.name}
               age={pson.age}
-              />
-            )
-          })}
-          </div> );
+              key={pson.id}
+              namechange={(event) => this.changeNameHandler(event, pson.id)} />            
+          })
+          }
+        </div> 
+      );
     };
 
   return (
