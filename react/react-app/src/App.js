@@ -38,7 +38,7 @@ class App  extends  Component{
 
     p1.name = event.target.value;
 
-    const personLists = [...this.state.persons];    // fixed error her and changed it to arrays instead of objects as MAP function was failing!
+    const personLists = [...this.state.persons];    // fixed error here and changed it to arrays instead of objects as MAP function was failing!
     personLists[pIndex] = p1;
 
     // this.state.persons.persons[0].name = "ABD"  // ERROR!
