@@ -21,6 +21,13 @@ class App  extends  Component{
     })
   };
 
+  deleteNameHandler = (index) => {
+    //slice() will take a copy of orginal element and will avoid mutating the state
+    const deletedpersonlist = this.state.persons.slice()
+    deletedpersonlist.splice(index,1);
+    this.setState({persons:deletedpersonlist})
+  };
+
 
   changeNameHandler = (event) => {
     // this.state.persons.persons[0].name = "ABD"  // ERROR!
@@ -46,18 +53,14 @@ class App  extends  Component{
     if (this.state.showPersons) {
       displayperson = (
         <div>
-              <Person 
-              name={this.state.persons[0].name} 
-              age={this.state.persons[0].age} 
-              namechange={this.changeNameHandler}
+          {this.state.persons.map((pson, index) => {
+            return (<Person
+              click={() => this.deleteNameHandler(index)}
+              name={pson.name}
+              age={pson.age}
               />
-              <Person 
-              name={this.state.persons[1].name} 
-              age={this.state.persons[1].age}
-              click={this.switchNameHandler.bind(this,'ABCD')}
-              > 
-              My hobbies: Racing 
-              </Person>    
+            )
+          })}
           </div> );
     };
 
