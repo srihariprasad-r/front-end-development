@@ -9,9 +9,9 @@
                 margin: 0;
             }
             header, main {
-                margin: 3rem 2rem;
+                margin: 1rem 2rem;
             }
-            ul{
+            nav{
             list-style-position: inside;
             list-style-type: square;
             outline: 1px solid red;
@@ -21,7 +21,14 @@
             list-style-position:inside;
             list-style-type: circle;
             margin: 2rem;
-            }            
+            }         
+            .indented {
+                text-align: end;                
+                text-indent: 1000pt;
+            }      
+            time {
+                font-weight: bold;
+            }
         </style>
     </header>
     <body>
@@ -32,6 +39,7 @@
                     <a href="">Home</a>                   
                     <a href="">List 1</a>
                     <a href="">List 2</a>
+                    <p class="indented"><time datetime="2020W42">42nd week of 2020</time></p>
                 </span>
             </ul>
         </nav>
