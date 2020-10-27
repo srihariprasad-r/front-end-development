@@ -3,15 +3,36 @@
     <header>
         <meta charset="UTF-8">
         <title>Lesson 1</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            header, main {
+                margin: 3rem 2rem;
+            }
+            ul{
+            list-style-position: inside;
+            list-style-type: square;
+            outline: 1px solid red;
+            margin: 1rem;
+            }
+            ul span{
+            list-style-position:inside;
+            list-style-type: circle;
+            margin: 2rem;
+            }            
+        </style>
     </header>
     <body>
         <h1> Heading... </h1>
-        <p id="Hello" title="Hover">Hello !</p>
         <nav>
             <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">List 1</a></li>
-                <li><a href="">List 2</a></li>
+                <span>
+                    <a href="">Home</a>                   
+                    <a href="">List 1</a>
+                    <a href="">List 2</a>
+                </span>
             </ul>
         </nav>
         <main>
