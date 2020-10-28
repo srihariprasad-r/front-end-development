@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
+
+:root {
+    --primary-color: #047aed;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -36,7 +41,7 @@ img {
 }
 
 .navbar {
-    background-color: #047aed;
+    background-color: var(--primary-color);
     color: #fff;
     height: 70px;
 }
@@ -51,8 +56,39 @@ img {
     margin: 0 5px    
 }
 
+.navbar a:hover {
+    border-bottom: 7px #fff solid;
+}
+
 .navbar .flex {
     justify-content: space-between;
+}
+
+.showcase {
+    height: 400px;
+    background-color:var(--primary-color) ;
+    color: #fff;
+    position: relative;
+}
+
+.showcase h1 {
+    font-size: 40px;
+}
+
+.showcase p {
+    margin: 20px 0;
+}
+
+.showcase .grid {
+    overflow : visible;
+    grid-template-columns: 55% 45%;
+    gap: 30px
+}
+
+.showcase-form {
+    position: relative;
+    top: 60px;
+    height: 350px;
 }
 
 .container {
@@ -62,9 +98,27 @@ img {
     padding: 0 40px;
 }
 
+.card {
+    background-color: #fff;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 10px;
+}
+
 .flex {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100%
 }
