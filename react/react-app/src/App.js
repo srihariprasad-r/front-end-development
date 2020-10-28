@@ -55,6 +55,12 @@ class App  extends  Component{
   }
 
   render () {
+
+    const style = {
+      backgroundColor: 'green',
+      color: 'white',
+      font: 'inherit'
+    }
     
     let displayperson = null
 
@@ -72,12 +78,23 @@ class App  extends  Component{
           }
         </div> 
       );
+
+      style.backgroundColor = 'red';
     };
+
+  let cssclasses = [];
+  if (this.state.persons.length <= 1 ) {
+    cssclasses.push('red')
+  }  
+  if (this.state.persons.length < 1 ) {
+    cssclasses.push('bold')
+  }
 
   return (
     <div className="App">
       <h1>I am a React App</h1>
-      <button onClick={this.toggleHandler}>Toggle Name</button>
+      <p className={cssclasses.join(" ")}>This is for css styling!</p>
+      <button style={style} onClick={this.toggleHandler}>Toggle Name</button>
       {displayperson}   
     </div>
   );
