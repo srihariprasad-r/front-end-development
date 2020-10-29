@@ -1,9 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function Greeting() 
-{
-  return <h4>This is heading!</h4>;
+//stateless functional component
+
+// function Greeting() {
+//   return (
+//       <div>
+//         <h4>This is heading!</h4>
+//       </div>
+//       );
+// };
+
+const Greeting = () => {
+  return React.createElement('h4', {} , 'hello world!')
 };
 
 ReactDOM.render(
