@@ -34,6 +34,6 @@ const BookImage = () => {
 
 const Title = () => <h3>Diary of a Wimpy Kid: The Deep End</h3>;
 
-const Author = () => <h4>Jeff Kinney</h4>;
+const Author = () => <h4 style={{color:'#617d98', fontSize:'0.75rem', marginTop:'0.25rem'}}>Jeff Kinney</h4>;
 
 ReactDOM.render(<BookList />, document.getElementById("root"));
