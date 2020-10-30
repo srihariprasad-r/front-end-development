@@ -1,28 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css';
 
 //stateless functional component
 
 function BookList() {
   return (
-  <section>
-    <Book />
-    <Title />
-    <Author />
-  </section>
+    <section className="booklist">
+      <Book />
+      <Book />
+      <Book />
+    </section>
   );
 };
 
 
 const Book = () => {
   return (
-    <img
-      src=""
-      alt=""
-    />
+    <article className='book'>
+      <BookImage />
+      <Title />
+      <Author />
+    </article>
   );
 };
 
+const BookImage = () => {
+  return (        <img
+          src=""
+          alt=""
+        />);
+}
 
 const Title = () => <h3>Diary of a Wimpy Kid: The Deep End</h3>;
 
