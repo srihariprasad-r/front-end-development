@@ -8,8 +8,6 @@ function BookList() {
   return (
     <section className="booklist">
       <Book />
-      <Book />
-      <Book />
     </section>
   );
 };
@@ -26,7 +24,8 @@ const Book = () => {
 };
 
 const BookImage = () => {
-  return (        <img
+  return (
+        <img
           src=""
           alt=""
         />);
