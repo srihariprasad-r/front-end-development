@@ -131,3 +131,17 @@ a:hover {
 .sidebar.open {
     transform: translateX(0);
 }
+
+.sidebar-close-button {
+    border-radius: 50%;
+    border: 0.1rem black solid;
+    width: 3rem;
+    height: 3rem;
+    padding: 0.5rem;
+    font-size: 2.2rem;
+    padding-top: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 2.8rem;
+    top: 1.7rem;
+}
