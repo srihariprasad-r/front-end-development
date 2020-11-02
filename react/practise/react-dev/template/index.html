@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+    <header>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <title>ECommerce</title>
-    </head>
+    </header>
+    <aside class="sidebar">
+        <h3>Shopping Categories</h3>
+        <button onclick="closemenu()">x</button>
+        <ul>
+            <li>
+                <a href="index.html">Pants</a>
+            </li>
+            <li>
+                <a href="index.html">Shirts</a>
+            </li>
+        </ul>
+    </aside>
     <body>
         <div class="grid-container">
             <header class="header">
                 <div class="brand">
-                    <button>&#9776;</button>
+                    <button onclick="openMenu()">&#9776;</button>
                     <a href="index.html">Online Store</a>
                 </div>
                 <div class="header-links">
@@ -61,5 +73,13 @@
                 All rights reserved
             </footer>
         </div>
+        <script>
+            function openMenu() {
+                document.querySelector('.sidebar').classList.add('open');    
+            }
+            function closemenu() {
+                document.querySelector('.sidebar').classList.remove('open')
+            }
+        </script>        
     </body>
 </html>
