@@ -1,5 +1,6 @@
 import React from 'react';
 import data from '../data';
+import {Link} from 'react-router-dom';
 
 function HomeScreen (props) {
     return (
@@ -13,9 +14,7 @@ function HomeScreen (props) {
                 className="product-image"
               />
               <div className="product-name">
-                <a href="product.html>" Slim Shirt>
-                  {product.name}
-                </a>
+                <Link to={'/product/' + product._id}> {product.name} </Link>
               </div>
               <div className="product-brand">{product.brand}</div>
               <div className="product-price">{product.price}</div>
