@@ -151,3 +151,48 @@ a:hover {
     right: 2.8rem;
     top: 1.7rem;
 }
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 3rem;
+    margin: 0%;
+}
+
+.details-image {
+    flex: 2 1 60rem;
+}
+
+.details-image img {
+    max-width: 50rem;
+    width: 100%;
+    height: 100%;
+}
+
+.details-info {
+    flex: 1 1 30rem;  
+    line-height: 10px;
+}
+
+.details-info ul, .details-action ul {
+    list-style-type: none;
+    padding: 0;     
+    margin-bottom: 1rem; 
+}
+
+.details-action {
+    flex: 1 1 30rem;
+}
+
+.details-info li, .details-action li {
+    margin-bottom: 1rem;     
+    font-size: 16px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.backtoresult {
+    padding: 1rem;
+}

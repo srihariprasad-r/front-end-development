@@ -45,7 +45,7 @@ function App() {
         <main className="main">
           <div className="content">
             <Route path="/" component={HomeScreen} exact={true} />
-            <Route path="/products/:id" component={ProductScreen} />
+            <Route path="/product/:id" component={ProductScreen} />
           </div>
         </main>
         <footer className="footer">All rights reserved</footer>
