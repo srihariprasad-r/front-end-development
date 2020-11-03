@@ -157,7 +157,7 @@ a:hover {
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
-    padding: 3rem;
+    padding: 1rem;
     margin: 0%;
 }
 
@@ -184,6 +184,10 @@ a:hover {
 
 .details-action {
     flex: 1 1 30rem;
+    border: 0.1rem #b8e7e7 solid;
+    border-radius: 0.5rem;
+    background-color: #f8f8f8;
+    padding: 1.2rem;
 }
 
 .details-info li, .details-action li {
@@ -193,6 +197,26 @@ a:hover {
     padding: 0;
 }
 
-.backtoresult {
+.back-to-result {
     padding: 1rem;
+}
+
+.details-action li:last-child {
+    display: flex;
+    flex-direction: column;   
+}
+
+.button {
+    padding: 1rem;
+    border: 0.1rem #808080 solid;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.button:hover {
+    border: .1rem #408080 solid;
+}
+
+.button.primary {
+    background-color: #f0c040;
 }
