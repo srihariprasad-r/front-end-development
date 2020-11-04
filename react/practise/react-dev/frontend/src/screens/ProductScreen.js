@@ -3,12 +3,12 @@ import data from "../data";
 import { Link } from 'react-router-dom';
 
 function ProductScreen(props) {
-    console.log(props.match.params.id);
+    console.log(props);
     const product = data.products.find((x) => x._id === props.match.params.id);
   return (
     <div>
       <div class="back-to-result">
-        <Link to="/">Back to results</Link>
+        <Link to="/">{"<<"} Back to results</Link>
       </div>
       <div className="details">
         <div className="details-image">
