@@ -1,6 +1,4 @@
-const PRODUCT_LIST_REQUEST = "PRODUCT_LIST_REQUEST";
-const PRODUCT_LIST_SUCCESS = "PRODUCT_LIST_SUCCESS";
-const PRODUCT_LIST_FAIL = "PRODUCT_LIST_FAIL";
+import {PRODUCT_LIST_FAIL, PRODUCT_LIST_SUCCESS, PRODUCT_LIST_REQUEST} from '../constants/productConstants';
 
 function productListReducer(state = { products: [] }, action) {
     switch(action.type) {
