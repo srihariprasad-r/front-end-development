@@ -1,78 +1,112 @@
 <html>
+    <head>
+        <title>My page</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="./pagination.js"></script>
+        <style>
+            section {
+                display: flex;
+            }
 
-<head>
-    <title>My page</title>
-    <style>
-        section {
-        display: flex;
-        }
+            article {
+                flex: 1 200px;
+            }
 
-        article {
-        flex: 1 200px;
-        }
+            div {
+                display: inline-block;
+                align-items: stretch;
+                column-count: 2;
+                column-gap: 1px;
+            }
 
-        div {
-        display: inline-block;
-        align-items: stretch;
-        column-count: 2;
-        column-gap: 1px;
-        }
+            button {
+                flex: 1 200px;
+                margin: 5px;
+                line-height: 1.3;
+                font-size: 10px;
+                width: 70%;
+            }            
+            .container {
+                border: 1px solid rgba(0, 0, 0, 0.11);
+                padding: 10px;
+                width: 500px;
+            }
 
-        button {
-        flex: 1 200px;
-        margin: 5px;
-        line-height: 1.3;
-        font-size: 10px;
-        width: 70%;
-        }
-            
-    </style>
-</head>
+            .controls-item {
+                display: inline-block;
+            }
 
-<body>
-    <header>
-        <h3>
-            This is sample article
-        </h3>
-    </header>
-    <section>
-        <article>
-            <h2>
-                First article
-            </h2>
-            <p>Tacos actually microdosing, pour-over semiotics banjo chichar retro fanny pack portland everyday carry
-                vinyl typewriter. Tacos PBR&B pork belly, everyday carry ennui pickled sriracha normcore hashtag
-                polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee, leggings salvia iPhone photo
-                booth health goth gastropub hammock.
-            </p>
-        </article>
-        <article>
-            <h2>
-                Second article
-            </h2>
-            <p>Tacos actually microdosing, pour-over semiotics banjo chichar retro fanny pack portland everyday carry
-                vinyl typewriter. Tacos PBR&B pork belly, everyday carry ennui pickled sriracha normcore hashtag
-                polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee, leggings salvia iPhone photo
-                booth health goth gastropub hammock.
-            </p>
-        </article>
-        <article>
-            <h2>
-                Third article
-            </h2>
-            <div>
-                <button> Home </button>
-                <button> Resources </button>
-                <button> Documents </button>
-                <button> Usecases </button>
+            .btn {
+                margin: 1px;
+            }            
+        </style>
+    </head>
+    <body>
+        <header>
+            <h3>
+                This is sample article
+            </h3>
+        </header>
+        <section>
+            <article>
+                <h2>
+                    First article
+                </h2>
+                <p>Tacos actually microdosing, pour-over semiotics banjo chichar retro fanny pack portland everyday carry
+                    vinyl typewriter. Tacos PBR&B pork belly, everyday carry ennui pickled sriracha normcore hashtag
+                    polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee, leggings salvia iPhone photo
+                    booth health goth gastropub hammock.
+                </p>
+            </article>
+            <article>
+                <h2>
+                    Second article
+                </h2>
+                <p>Tacos actually microdosing, pour-over semiotics banjo chichar retro fanny pack portland everyday carry
+                    vinyl typewriter. Tacos PBR&B pork belly, everyday carry ennui pickled sriracha normcore hashtag
+                    polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee, leggings salvia iPhone photo
+                    booth health goth gastropub hammock.
+                </p>
+            </article>
+            <article>
+                <h2>
+                    Third article
+                </h2>
+                <div>
+                    <button> Home </button>
+                    <button> Resources </button>
+                    <button> Documents </button>
+                    <button> Usecases </button>
+                </div>
+                <p>Tacos actually microdosing, pour-over semiotics banjo chichar retro fanny pack portland everyday carry
+                    vinyl typewriter. Tacos PBR&B pork belly, everyday carry ennui pickled sriracha normcore hashtag
+                    polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee, leggings salvia iPhone photo
+                    booth health goth gastropub hammock.
+                </p>
+            </article>
+        </section>
+        <!--Pagination Example -->
+        <div class="container ">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>First</th>
+                        <th>Last</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="container ">
+            <div id="wrapper">
+
             </div>
-            <p>Tacos actually microdosing, pour-over semiotics banjo chichar retro fanny pack portland everyday carry
-                vinyl typewriter. Tacos PBR&B pork belly, everyday carry ennui pickled sriracha normcore hashtag
-                polaroid single-origin coffee cold-pressed. PBR&B tattooed trust fund twee, leggings salvia iPhone photo
-                booth health goth gastropub hammock.
-            </p>
-        </article>
-    </section>
-</body>
-
+        </div>
+    </body>
 </html>
