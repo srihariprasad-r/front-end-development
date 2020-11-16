@@ -1,4 +1,3 @@
-import jquery from "https://cdn.skypack.dev/jquery@v3.5.1";
 var tableData = [
   {
     first_name: "Russell",
