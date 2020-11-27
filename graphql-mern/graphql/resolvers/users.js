@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require("../../models/User");
 const { UserInputError } = require('apollo-server');
+const { validateRegisterInput } = require('../../utils/validation');
 
 const { SECRET_KEY } = require('../../config');
 
@@ -14,6 +15,15 @@ module.exports = {
         }
         ) {
             //TODO: Validate data
+            const { valid, errors } = validateRegisterInput(
+              username,
+              email,
+              password,
+              confirmpassword
+            );
+            if (!valid) {
+                throw new UserInputError('Errors', { errors});
+            }
             //TODO: User doesn't exist
             const userexists = User.findOne({username});
 
