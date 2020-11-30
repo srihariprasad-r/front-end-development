@@ -38,7 +38,9 @@ module.exports = {
 
             const post = await newpost.save();
 
-            return post;
+            return post;            
+        },
+        async deletePost(_ , {postId}, context) {
             
         }
     }
