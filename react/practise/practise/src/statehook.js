@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { CustomHook } from './customhook';
+import { ShowHello } from './showhello';
+import { useFetch } from './useFetch';
 
 const StateHook = () => {
     const [{count1, count2}, setCount] = useState({count1: 0, count2: 100});
     const [values, setValues] = CustomHook({email: '', paswword: ''});
+    const [showhello, setShowhello] = useState(true);
+
+    const {data, loading} = useFetch('http://numbersapi.com/43/trivia');
 
     function onIncrement() {
         setCount(currentCount => ({
@@ -23,6 +28,9 @@ const StateHook = () => {
 
     return (
         <div>
+            {loading ? 'loading...' : data}
+            <button onClick={() => setShowhello(!showhello)}>toggle</button>
+            {showhello && <ShowHello />}
             <div>
                 <button onClick={onIncrement}>+</button>
                 <button onClick={onDecrement}>-</button>
