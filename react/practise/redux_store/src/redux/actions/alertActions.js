@@ -1,6 +1,6 @@
-export const addAlert = (item) => {
+export const addAlert = (str) => {
     return {
         type: 'ADD_ALERT',
-        payload: item
+        payload: str
     };
 };

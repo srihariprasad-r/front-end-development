@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
-    cart: []
+    cart: [],
+    cartTotal: 0
 }
 
 export const cartReducer = (state = INITIAL_STATE, action) => {
@@ -7,12 +8,14 @@ export const cartReducer = (state = INITIAL_STATE, action) => {
         case 'ADD_TO_CART':
             return {
                 ...state, 
-                cart: [...state.cart, action.payload]
+                cart: action.payload.newcart,
+                cartTotal: action.payload.totalpayment
             }
         case 'REMOVE_FROM_CART':
             return {
                 ...state, 
-                cart: action.payload
+                cart: action.payload.item,
+                cartTotal: action.payload.totalpayment
             }
         default:
             return state
