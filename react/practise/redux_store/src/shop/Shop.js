@@ -1,14 +1,16 @@
 import React, { useState , useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCartItemAction, removeFromCartItemAction } from '../redux/actions/cartActions';
+import { addAlert } from '../redux/actions/alertActions';
 
 const Shop = () => {
 
     //const [cart, setCart] = useState([]);
-    const [alert, setAlert] = useState("");
+    //const [alert, setAlert] = useState("");
     const [total, setTotal] = useState(0);
 
     const { cart } = useSelector(state=> state.cartReducer);
+    const { alert } = useSelector(state => state.alertReducer);
 
     const dispatch = useDispatch();
 
@@ -52,9 +54,11 @@ const Shop = () => {
         if (flag) {
             //setCart([...cart, el]);
             dispatch(addToCartItemAction(el));
-            setAlert("");
+            //setAlert("");
+            dispatch(addAlert(""));
         } else {
-            setAlert(`${el.name} is already in the cart!`);
+            dispatch(addAlert(`${el.name} is already in the cart!`));
+            //setAlert(`${el.name} is already in the cart!`);
         }
     };
 
@@ -63,7 +67,8 @@ const Shop = () => {
         hardcopy = hardcopy.filter((cartitem) => cartitem.id !== el.id);
         //setCart(hardcopy);
         dispatch(removeFromCartItemAction(hardcopy));
-        setAlert("");
+        //setAlert("");
+        dispatch(addAlert(""));
     };
     
     
