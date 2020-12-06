@@ -6,12 +6,9 @@ export const addToCartItemAction = (item) => {
 };
 
 
-export const removeFromCartItemAction = (element, item) => {
-    let hardcopy = [...item];
-    hardcopy = hardcopy.filter(e=> e.id !== element.id);
-
+export const removeFromCartItemAction = (item) => {
     return {
         type: 'REMOVE_FROM_CART',
-        payload: hardcopy
+        payload: item
     };
 };

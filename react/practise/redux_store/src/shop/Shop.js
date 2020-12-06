@@ -59,10 +59,10 @@ const Shop = () => {
     };
 
     const removeFromCart = (el) => {
-        //let hardcopy = [...cart];
-        //hardcopy = hardcopy.filter((cartitem) => cartitem.id !== el.id);
+        let hardcopy = [...cart];
+        hardcopy = hardcopy.filter((cartitem) => cartitem.id !== el.id);
         //setCart(hardcopy);
-        dispatch(removeFromCartItemAction(el, cart));
+        dispatch(removeFromCartItemAction(hardcopy));
         setAlert("");
     };
     
