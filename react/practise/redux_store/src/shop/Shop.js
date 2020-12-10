@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCartItemAction, removeFromCartItemAction } from '../redux/actions/cartActions';
 import { addAlert } from '../redux/actions/alertActions';
+import {findEmployee} from '../redux/actions/userActions';
 
 const Shop = () => {
 
