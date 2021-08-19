@@ -29,7 +29,7 @@ class ProductSchema(ma.Schema):
     class Meta:
         fields = ('id', 'name', 'description', 'price', 'quantity')
 
-product_schema = ProductSchema()
+product_schema = ProductSchema(many=True)
 products_schema = ProductSchema(many=True)
 
 @app.route('/product',methods=['POST'])
@@ -54,7 +54,7 @@ def get_all_products():
 @app.route('/product/',methods=['GET'])
 def get_product_by_id_quantity():
     args = request.args
-    product = Product.query.filter(Product.quantity == args['quantity']).all()
+    product = Product.query.filter(Product.quantity == args['quantity'], Product.id == args['id']).all()
     return product_schema.jsonify(product)
 
 if __name__ == '__main__':
