@@ -32,7 +32,9 @@ def index(request):
     
 def challenge_by_name(request, month):
     if month in monthly_challenge:
-        return HttpResponse(monthly_challenge[month])
+        return render(request, "challenges/challenge.html", {
+            "challenge": monthly_challenge[month]
+        })
     else:
         return HttpResponseNotFound("Response not found!")
 
