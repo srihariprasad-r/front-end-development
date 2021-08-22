@@ -20,20 +20,16 @@ monthly_challenge = {
 # Create your views here.
 def index(request):
     months = list(monthly_challenge.keys())
-    list_items = ""
-
-    for month in months:
-        captial_month = month.capitalize()
-        redirect_path = reverse("month-challenge",args=[month])
-        list_items += f"<li><a href=\"{redirect_path}\">{captial_month}</a></li>"
         
-    response_data = f"<ol>{list_items}</ol>"
-    return HttpResponse(response_data)
+    return render(request, "challenges/index.html", {
+        "month": months
+    })
     
 def challenge_by_name(request, month):
     if month in monthly_challenge:
         return render(request, "challenges/challenge.html", {
-            "challenge": monthly_challenge[month]
+            "challenge": monthly_challenge[month],
+            "title_challenge": month + ' Monthly Challenge'
         })
     else:
         return HttpResponseNotFound("Response not found!")
