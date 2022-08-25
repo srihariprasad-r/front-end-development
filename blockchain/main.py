@@ -58,7 +58,7 @@ class Node(object):
 
         while idx < len(self.chain):
             next_block = self.chain[idx]
-            print(next_block['index'], current_block['index'])
+
             if next_block['previous_hash'] != self.get_hash(current_block):
                 return False
 
