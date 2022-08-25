@@ -11,10 +11,10 @@ class Node(object):
     def mine_block(self,data):
         previous_block = self.chain[-1]
         previous_proof = previous_block['proof']
-        index = previous_block['index']
+        index = len(self.chain) + 1
         new_proof = self.proof_of_work(previous_proof, index, data)
         previous_hash = self.get_hash(block=previous_block)
-        next_block = self.create_block(new_proof, data, index + 1 , previous_hash)
+        next_block = self.create_block(new_proof, data, index , previous_hash)
         self.chain.append(next_block)
         return next_block
 
@@ -52,7 +52,33 @@ class Node(object):
         }
         return block
 
+    def is_chain_valid(self):
+        current_block = self.chain[0]
+        idx = 1
+
+        while idx < len(self.chain):
+            next_block = self.chain[idx]
+            print(next_block['index'], current_block['index'])
+            if next_block['previous_hash'] != self.get_hash(current_block):
+                return False
+
+            new_block_hash = self.get_digest(
+                next_block['proof'], current_block['proof'], next_block['index'], next_block['data'])
+
+            new_hash = hashlib.sha256(new_block_hash).hexdigest()
+
+            if new_hash[:4] != "0000":
+                return False
+
+            current_block = next_block
+            idx += 1
+        
+        return True
+
 n = Node()
 n.mine_block(data='data1')
 n.mine_block(data='data2')
-print(n.chain)
+n.mine_block(data='data21')
+print(n.is_chain_valid())
+# for i in range(len(n.chain)):
+#     print(n.chain[i])
